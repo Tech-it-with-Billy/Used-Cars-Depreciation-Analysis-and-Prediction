@@ -1,0 +1,5 @@
+streamlit
+tornado==6.1
+pandas
+scikit-learn==1.7.1
+joblib
