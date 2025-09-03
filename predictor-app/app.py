@@ -1,9 +1,19 @@
 import streamlit as st
 import pandas as pd
-import joblib
+import joblib, requests, os
 
-# Load the saved pipeline
-model = joblib.load('model_pipeline.pkl')
+url = "https://huggingface.co/ochiengbilly/Car-price-estimator-ke/resolve/main/predictor-app/model_pipeline.pkl"
+model_path = "model_pipeline.pkl"
+
+@st.cache_resource
+def load_model():
+    if not os.path.exists(model_path):
+        r = requests.get(url)
+        with open(model_path, "wb") as f:
+            f.write(r.content)
+    return joblib.load(model_path)
+
+model = load_model()
 
 # Title
 st.title('Car Price Depreciation Predictor')
