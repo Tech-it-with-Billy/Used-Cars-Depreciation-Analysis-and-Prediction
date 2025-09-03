@@ -1,5 +1,7 @@
 # Used-Cars-Depreciation-Analysis-and-Prediction
 
+### Interact with the app[here](https://car-price-estimator-ke.streamlit.app/)
+
 ###  Project Overview
 
 This project involves scraping and analyzing car listings from [Jiji.co.ke](https://jiji.co.ke/cars), one of Kenya's most popular online marketplaces. Using Selenium, we collected detailed car data, stored it in a PostgreSQL database, and used SQL and Python for data analysis and visualization. We also trained a machine learning model to predict car prices based on key features and deployed it using Streamlit for real-time predictions.
