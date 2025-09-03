@@ -1,9 +1,17 @@
 import streamlit as st
 import pandas as pd
-import joblib
+import joblib, requests, os
 
 # Load the saved pipeline
-model = joblib.load('model_pipeline.pkl')
+url = 'https://drive.google.com/file/d/1LOsNKKYhCY98KlQTGdLJ5r-Z3gnp0b3r/view?usp=sharing'
+model_path = "model_pipeline.pkl"
+
+if not os.path.exists(model_path):
+    r = requests.get(url)
+    with open(model_path, "wb") as f:
+        f.write(r.content)
+
+model = joblib.load(model_path)
 
 # Title
 st.title('Car Price Depreciation Predictor')
