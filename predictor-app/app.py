@@ -16,7 +16,7 @@ def load_model():
 model = load_model()
 
 # Title
-st.title('Car Price Depreciation Predictor')
+st.title('Car Price Estimator KE')
 
 # Input form
 with st.form('prediction_form'):
@@ -30,7 +30,7 @@ with st.form('prediction_form'):
                                 'Renault', 'Citroen', 'Smart', 'MG', 'Great Wall', 'Mahindra',
                                 'Chevrolet', 'Maruti Suzuki', 'Other Make', 'Geely', 'Vauxhall',
                                 'Chery'])
-    model_name = st.text_input("Model (C200, E400)")
+    model_name = st.text_input("Model (E400)")
     
     transmission = st.selectbox("Transmission", ['Automatic', 'AMT', 'CVT', 'Manual'])
     previous_ownership = st.selectbox("Previous Ownership", ['Foreign Used', 'Brand New', 'Local Used', 'Kenyan Used'])
@@ -38,7 +38,7 @@ with st.form('prediction_form'):
     
     age = st.number_input("Age (in years)", min_value=0)
 
-    submit = st.form_submit_button("Predict Depreciation")
+    submit = st.form_submit_button("Predict Price")
 
 # Run prediction
 if submit:
